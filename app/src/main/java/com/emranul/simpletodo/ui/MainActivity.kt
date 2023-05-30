@@ -112,7 +112,6 @@ class MainActivity : AppCompatActivity() {
             toasty("updated")
         }
 
-        lifecycleScope
 
         adapterTasks.onClickRemove = { position, it ->
 
