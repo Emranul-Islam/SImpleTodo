@@ -1,4 +1,4 @@
-package com.emranul.simpletodo.data
+package com.emranul.simpletodo.data.ripository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

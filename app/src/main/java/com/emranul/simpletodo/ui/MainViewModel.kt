@@ -3,7 +3,7 @@ package com.emranul.simpletodo.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import com.emranul.simpletodo.data.TaskRepository
+import com.emranul.simpletodo.data.ripository.TaskRepository
 import com.emranul.simpletodo.data.model.TaskData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
