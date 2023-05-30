@@ -1,5 +1,6 @@
 package com.emranul.simpletodo.ui
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
@@ -97,6 +98,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun recyclerTask() {
         binding.recyclerTasks.apply {
             adapter = adapterTasks
@@ -106,8 +108,7 @@ class MainActivity : AppCompatActivity() {
         adapterTasks.onClick = { position, it ->
             it.isCompleted = !it.isCompleted
             viewModel.updateTask(it)
-            adapterTasks.snapshot()[position]?.isCompleted = it.isCompleted
-            adapterTasks.notifyItemChanged(position)
+            adapterTasks.notifyDataSetChanged()
             toasty("updated")
         }
 
@@ -120,9 +121,8 @@ class MainActivity : AppCompatActivity() {
                 setMessage("Your task '${it.title}' wille remove permanently.")
                 setPositiveButton("Yes") { dialog, _ ->
                     dialog.dismiss()
-
                     viewModel.removeTask(it)
-                    adapterTasks.notifyItemRemoved(position)
+
                     toasty("removed")
                 }
                 setNegativeButton("No") { dialog, _ ->
